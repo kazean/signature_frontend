@@ -67,7 +67,7 @@
 - OPT + Shift + Down/Up: 줄복사
 - TAB: Indent(권장 size:2)
 - CMD + Shift + [ or ]: 탭이동
-- CMD + \: 창분할
+- `CMD + \`: 창분할
 > cf, CMD > Ctrl, OPT > Alt
 
 ## beautify - Deprecated
