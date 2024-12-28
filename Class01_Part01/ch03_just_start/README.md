@@ -83,13 +83,13 @@ console.log('HEROPY!');
 - meta, title, link, script, style
 
 - title: HTML 문서의 제목을 정의
-- link: 외부 문서(대부분 CSS)을 가져와 연결할 때 사용
+- `link`: 외부 문서(대부분 CSS)을 가져와 연결할 때 사용
 > - `rel="stylesheet/icon" href="./main.css"`
 > - `rel="icon" href="../favicon.png"`
 - style: 스타일을 HTML 문서 안에서 작성하는 경우에 사용
-- script: JS파일 가져오거나 HTML 문서 안에서 작성하는 경우
+- `script`: JS파일 가져오거나 HTML 문서 안에서 작성하는 경우
 > `src="./main.js"`
-- meta: HTML 문서의 제작자, 내용, 키워드 같은, 여러 정보를 검색엔진이나 브라우저에게 제공
+- `meta`: HTML 문서의 제작자, 내용, 키워드 같은, 여러 정보를 검색엔진이나 브라우저에게 제공
 > - `name="author" content="HEROPY"`: name(종류), content(정보의 값)
 > - `name="viewport" content="width=device-with, initial-scale=1.0"`
 > - `charset="UTF-8"`
