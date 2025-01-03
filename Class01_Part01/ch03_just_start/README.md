@@ -129,9 +129,11 @@ console.log('HEROPY!');
 ---------------------------------------------------------------------
 # Ch03-06. 상대 경로와 절대 경로
 - 상대경로 vs 절대경로
-> - ./ (생략가능)     http (https)
-> - ../             / (//)
-- http://localhost:5500
+```txt
+./ (생략가능)     http (https)
+../             / (//)
+http://localhost:5500
+```
 > index.html, images, css
 
 - ex)
