@@ -3,7 +3,7 @@
 > HTML, CSS, JS, 웹 표준, 오픈소스 라이선스
 - [Ch02. VS Code](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch02_VSCode)
 - [Ch03. 무작정 시작하기](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch03_just_start)
-- [Ch04. ]()
+- [Ch04. 웹에서 시작하기](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch04_Web_get_start)
 - [Ch05. ]()
 - [Ch06. ]()
 - [Ch07. ]()
