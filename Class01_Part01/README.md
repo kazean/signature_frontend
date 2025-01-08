@@ -4,7 +4,8 @@
 - [Ch02. VS Code](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch02_VSCode)
 - [Ch03. 무작정 시작하기](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch03_just_start)
 - [Ch04. 웹에서 시작하기](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch04_Web_get_start)
-- [Ch05. ]()
+> Codepen, 브라우저 Style 초기화, Emmet
+- [Ch05. HTML 개요](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch05_html)
 - [Ch06. ]()
 - [Ch07. ]()
 - [Ch08. ]()
