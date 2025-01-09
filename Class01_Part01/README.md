@@ -6,12 +6,12 @@
 - [Ch04. 웹에서 시작하기](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch04_Web_get_start)
 > Codepen, 브라우저 Style 초기화, Emmet
 - [Ch05. HTML 개요](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch05_html)
-- [Ch06. ]()
-- [Ch07. ]()
-- [Ch08. ]()
-- [Ch09. ]()
-- [Ch10. ]()
-- [Ch11. ]()
+- [Ch06. HTML 핵심정리](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch06_html_core)
+- [Ch07. CSS 개요](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
+- [Ch08. ](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
+- [Ch09. ](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
+- [Ch10. ](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
+- [Ch11. ](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
 
 
 ---------------------------------------------------------------------
