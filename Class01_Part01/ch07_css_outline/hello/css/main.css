@@ -1,25 +1,6 @@
-/* @import url(./box.css); */
-
-.box {
-  width: 100px;
-  height: 100px;
+[type="password"] {
   background-color: orange;
-  /* transition: 1s; */
 }
-.box::after{
-  content: "";
-  display: block;
-  width: 30px;
-  height: 30px;
-  background-color: royalblue;
+[data-fruit-name="apple"] {
+  color:red;
 }
-/* .box:focus {
-  width: 300px;
-  background-color: royalblue;
-}
-input {
-
-}
-input:focus {
-  background-color: orange;
-} */

@@ -147,7 +147,7 @@ div .orange {
   background-color: royalblue;
 }
 ```
-## POCUS
+## FOCUS
 - ABC:focus
 - ABC 요소가 포커스되면 선택
 - 포커스가 되는 대표 요소: input, select, textarea
@@ -178,12 +178,12 @@ input:focus {
 
 ---------------------------------------------------------------------
 # Ch07-06. 선택자_가상 클래스(2)
-## FIRST CHILD
+## FIRST-CHILD
 - ABC:first-child
 - 선택자 ABC가 형제 요소 중 첫째라면 선택
-## LAST CHILD
+## LAST-CHILD
 - ABC:last-child, 막내
-## NTH CHILD
+## NTH-CHILD
 - ABC:nth-child(n), (n)째
 - *:nth-child(2n): 0, 2, 4, 6, ... (n은 0부터 시작)
 ```css
@@ -247,10 +247,28 @@ input:focus {
 
 ---------------------------------------------------------------------
 # Ch07-08. 선택자_속성
+## 속성 선택자
+- [ABC]
+```css
+[disabled] {
+  color: red;
+}
+[type="password"] {
+  color: red;
+}
+[data-fruit-name="apple"] {
+  color:red;
+}
+```
+> - 일반적인 속성을 가지고는 유용하지 않다
+> - `"` 생략가능하나 사용하는 것을 권장
 
 
 ---------------------------------------------------------------------
 # Ch07-09. 스타일 상속
+- 부모의 style이 하위요소에 상속된다
+- 상속되는 CSS 속성들: 모두 글자/문자 관련 속성들!(But, 전부는 아님)
+> font-style, font-weight, font-size, line-height, font-famility, color, text-align
 
 
 ---------------------------------------------------------------------
