@@ -325,6 +325,7 @@ input:focus {
 - id Selector: 100
 - class: 10
 - tag: 1
+- *: 0
 - 점수가 같으면, 선언순서
 > 점수는 상속되지 않는다
 
