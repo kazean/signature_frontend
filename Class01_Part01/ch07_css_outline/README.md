@@ -269,7 +269,97 @@ input:focus {
 - 부모의 style이 하위요소에 상속된다
 - 상속되는 CSS 속성들: 모두 글자/문자 관련 속성들!(But, 전부는 아님)
 > font-style, font-weight, font-size, line-height, font-famility, color, text-align
+## 강제 상속
+- 실질적으로 상속이 되지 않는 CSS 속성을 강제로 상속시키는 것
+
+## 실습(hello)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- <link rel="stylesheet" href="./css/box.css"> -->
+</head>
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+</body>
+</html>
+```
+```css
+.parent {
+  width: 300px;
+  height: 400px;
+  background-color: orange;
+}
+.parent {
+  width: 300px;
+  height: 400px;
+  background-color: orange;
+}
+.child {
+  width: 100px;
+  height: inherit;
+  background-color: inherit;
+  position: fixed;
+  top: 100px;
+  right: 10px;
+}
+```
+> `height: inherit;`, background-color
 
 
 ---------------------------------------------------------------------
-# Ch07-10. 선택자 우선 순위₩
+# Ch07-10. 선택자 우선 순위
+우선순위란, 같은 요소가 여러 선언의 대상이 된 경우, 어떤 선언의 CSS 속성을 우선 적용할지 결정하는 방법
+1. 점수가 높은 선언이 우선함
+2. 점수가 같으면, 가장 마지막에 해석된 선언이 우선함
+- ![선택자별_점수](./images/selectors_score.png)
+## 정리
+- important: 9,999,999,999
+- inline: 1000
+- id Selector: 100
+- class: 10
+- tag: 1
+- 점수가 같으면, 선언순서
+> 점수는 상속되지 않는다
+
+- [!선택자점수_예제](./images/selectors_ex.png)
+> - 가상 클래스 선택자 = 클래스 선택자 = 10
+> - 요소선택자 = 태그선택자 = 1
+> - 부정 선택자(not)은 점수 계산하지 않는다
+
+## 실습
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- <link rel="stylesheet" href="./css/box.css"> -->
+</head>
+<body>
+  <div id="hello" class="hello" style="color:orange;">
+    Hello World!
+  </div>
+</body>
+</html>
+```
+```css
+div {
+  font-size: 70px;
+}
+div.hello {
+  color: green;
+}
+.hello {
+  color: red !important;
+}
+```
+> id, important 는 잘 사용하지 않는다

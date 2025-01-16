@@ -1,6 +1,9 @@
-[type="password"] {
-  background-color: orange;
+div {
+  font-size: 70px;
 }
-[data-fruit-name="apple"] {
-  color:red;
+div.hello {
+  color: green;
+}
+.hello {
+  color: red !important;
 }
