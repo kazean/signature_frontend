@@ -29,7 +29,7 @@
 ---------------------------------------------------------------------
 # ch08-01. 개요
 - HTML 속성(Attributes), CSS 속성(Properties), JS 속성(Properties)
-- 박스모델, 글꼴, 문자, 배경, 배치, 플렉스(정렬), 전환, 변환, 띄움, 애니메이션, 그리드, 다단, 필터
+- 박스모델, 글꼴, 문자, 배경, 배치, `플렉스(정렬)`, `전환`, 변환, 띄움, 애니메이션, 그리드, 다단, 필터
 - 플렉스: 수평정렬, 띄움의 최신 기술
 - 전환: 애니메이션(전, 후) 상태
 - 변환: 회전, 이동, 크기 조절(요소의 변화 2D, 3D)
@@ -47,9 +47,9 @@
 - span
 > - 대표적인 인라인 요소
 > - 포함한 크기만큼 자동으로 줄어듬(auto)
-- div
+- `div`
 > - 대표적인 블럭 요소
-> - w: 부모 요소의 크기만큼 자동으로 늘어남(auto)
+> - w: `부모 요소의 크기만큼 자동으로 늘어남(auto)`
 > - h: 포함한 콘텐츠 크기만큼 자동으로 줄어듬
 ## max-width, max-height
 - 요소가 커질 수 있는 최대 가로/세로 너비
@@ -119,6 +119,7 @@ html {
 > > - margin: 10px 20px; // top/bottom: 10px, left/right: 20px
 > > - margin: 10px 20px 30px; //top, left/right, bottom
 > > - marign: 10px 20px 30px 40px // top right, bottom, left(시계방향)
+> > 요소의 크기는 늘어나지 않음
 
 ## 실습
 ```html
@@ -151,6 +152,7 @@ html {
 > - padding-top, right, bottom, left
 > > - padding: 10px 20px 30px; // margin과 동일
 > > - padding: 10px 20px 30px 40px;
+> > 요소의 크기가 늘어남
 
 ---------------------------------------------------------------------
 # ch08-06. 테두리 선(border)과 색상 표현
@@ -288,18 +290,124 @@ html {
 
 ---------------------------------------------------------------------
 # ch08-12. 글꼴
+- font-style
+> - 글자의 기울기
+> - `normal(d), italic`, oblique
+
+- font-weight;
+> - 글자의 두께(가중치)
+> - `normal(d, 400), bold(700), 100 ~ 900`, bolder(상위(부모) 요소보다 두껍게), lighter(상위(부모) 요소보다 얇게)
+
+- font-size
+> - 글자의 크기, 16px(d)
+> - 단위(px, em, rem)
+> - %, smaller, larger, xx-small ~ xx-large
+
+- line-height
+> - 한 줄의 높이, 행간과 유사
+> - normal(d), `숫자(요소의 글꼴 크기의 배수로 지정)`, 단위
+> > 수직으로 가운데 부분에 정렬
+
+- font-family
+> - 글꼴(서체) 지정
+> - font-familty: 글꼴1, "글꼴 2", ... 글꼴계열
+> - `sans-serif(고딕체 계열)`, serif(바탕체), monospace(고정너비), cursive, fantasy
+> > 띄어쓰기 등 특수문자가 포함된 글꼴 이름은 큰 따옴표로 묶어야 한다
+
+## 실습
+```html
+<h1>Hello world!</h1>
+<p>Lorem Ipsum is simply dummy text of the printing and typesettings industry</p>
+```
+```css
+h1 {
+  font-size: 24px;
+  font-weight; 700;
+  font-style: italic;
+  font-family: serif;
+}
+p {
+/*   font-size: 16px; */
+  width: 350px;
+  padding: 10px;
+  border: 1px solid;
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+```
 
 
 ---------------------------------------------------------------------
 # ch08-13. 문자
+- color
+> - 글자의 색상
+> - `rgb(0,0,0): d, 검정색`
+> - 색상: 기타 지정 가능한 색상
+
+- text-align
+> - 문자의 정렬방식
+> - `left(d), right, center`, justify(양쪽 정렬)
+
+- text-decoration
+> - 문자의 장식(선)
+> - `none(d), underline, line-through`, overline
+
+- text-ident
+> - 문장 첫 줄의 들여쓰기
+> - `0(d), 단위`, %
 
 
 ---------------------------------------------------------------------
 # ch08-14. 배경
+- background-color
+> - 요소의 배경색상
+> - transparent, 색상
+
+- background-image
+> - 요소의 배경 이미지 삽입
+> - `none(d), url("경로")`
+
+- background-repeat
+> - 요소의 배경 이미지 반복
+> - `repeat(d), repeat-x, repeat-y, no-repeat`
+
+- background-position
+> - 요소의 배경 이미지 위치
+> - 0% 0%, 방향(top, bottom, left, right, center), 단위
+> > x, y: 0 왼쪽 상단
+
+- background-size
+> - 요소의 배경 이미지 크기
+> - auto(d), 단위
+> - cover: 비율을 유지, 요소의 더 넓은 너비에 맞춤, contain: 요소의 더 짧은 너비에 맞춤
+
+- background-attachment
+> - 요소의 배경 이미지 스크롤 특성
+> - `scroll(d, 이미지가 요소를 따라서 같이 스크롤), fixed(이미지가 뷰포트에 고정, 스크롤X)`, local
+
+
+## 실습
+```css
+body {
+  height: 3000px;;
+}
+
+div {
+  width: 200px;
+  height: 200px;
+  background-color: orange;
+  background-image: url("https://heropy.blog/css/images/logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+```
 
 
 ---------------------------------------------------------------------
 # ch08-15. 배치(1)
+
 
 
 ---------------------------------------------------------------------
