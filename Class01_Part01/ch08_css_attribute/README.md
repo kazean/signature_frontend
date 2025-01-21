@@ -352,7 +352,7 @@ p {
 > - 문자의 장식(선)
 > - `none(d), underline, line-through`, overline
 
-- text-ident
+- text-indent
 > - 문장 첫 줄의 들여쓰기
 > - `0(d), 단위`, %
 
@@ -407,31 +407,334 @@ div {
 
 ---------------------------------------------------------------------
 # ch08-15. 배치(1)
+- position
+> - 요소의 위치 기정 기준
+> - `static(d, 기준 없음), relative(요소 자신을 기준), absolute(위치 상 부모 요소를 기준), fixed(뷰포트를 기준)`, sticky(스크롤 영역 기준)
+> - (포지션과 같이 사용하는 속성들) top, bottom, left, right, z-index
+> > - relative: 실제로는 원래 위치에 있지만, 허상으로 위치를 옮겨줌 (거의 사용하지 않음)
+> > - `absolute`: 붕 뜨면서 요소가 겹침
 
+- top, bottom, left, right
+> - auto(d), 단위(음수 가능)
+
+## 실습
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+- relative
+```css
+.container {
+  width: 300px;
+  background-color: royalblue;
+  
+}
+.container .item {
+  border: 4px dashed red;
+  background-color: orange;
+  
+}
+
+.container .item:nth-child(1) {
+  width: 100px;
+  height: 100px;
+}
+
+.container .item:nth-child(2) {
+  width: 140px;
+  height: 70px;
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
+
+.container .item:nth-child(3) {
+  width: 70px;
+  height: 120px;
+}
+```
+- absolute
+```css
+.container {
+  width: 300px;
+  background-color: royalblue;
+  position: relative;
+}
+
+.container .item {
+  border: 4px dashed red;
+  background-color: orange;
+  
+}
+
+.container .item:nth-child(1) {
+  width: 100px;
+  height: 100px;
+}
+
+.container .item:nth-child(2) {
+  width: 140px;
+  height: 70px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.container .item:nth-child(3) {
+  width: 70px;
+  height: 120px;
+}
+```
+> container가 relative여아 된다, `위치 상` static은 기준이 안됨 점차 상위로 올라감.
 
 
 ---------------------------------------------------------------------
 # ch08-16. 배치(2)
+- position: fixed;
+> 배치의 기준이 바껴서 붕뜸(absolute 와 동일), 다 무시하고 뷰포트 기준
+
+- 요소 쌓임 순서(Stack order)
+> - 어떤 요소가 사용자와 더 가깝게 있는지(위에 쌓이는지) 결정
+> 1. 요소에 `position 속성의 값`이 있는 경우 위에 쌓임.(static 제외)
+> 2. 1번 조건이 같은 경우, `z-index` 속성의 숫자 값이 높을 수록 위에 쌓임.
+> 3. 1번과 2번 조건까지 같은 경우, `HTML의 다음 구조`일 수록 위에 쌓임
+
+## 실습
+```html
+<div class="wrap">
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+</div>
+```
+- fixed
+```css
+body {
+  height: 3000px;
+}
+
+.wrap {
+  width: 400px;
+  height: 300px;
+  background-color: tomato;
+  
+}
+
+.container {
+  width: 300px;
+  background-color: royalblue;
+  position: relative;
+}
+
+.container .item {
+  border: 4px dashed red;
+  background-color: orange;
+  
+}
+
+.container .item:nth-child(1) {
+  width: 100px;
+  height: 100px;
+}
+
+.container .item:nth-child(2) {
+  width: 140px;
+  height: 70px;
+  position: fixed;
+  bottom: 30px;
+  right: 60px;
+}
+
+.container .item:nth-child(3) {
+  width: 70px;
+  height: 120px;
+}
+```
+- stack order
+```css
+.container {
+  width: 300px;
+  background-color: royalblue;
+  position: relative;
+}
+
+.container .item {
+  width: 100px;
+  height: 100px;
+  border: 4px dashed red;
+  background-color: orange;
+  
+}
+
+.container .item:nth-child(1) {
+  position: relative;
+  z-index: 1;
+}
+
+.container .item:nth-child(2) {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.container .item:nth-child(3) {
+  position: fixed;
+  z-index: 1;
+}
+```
 
 
 ---------------------------------------------------------------------
 # ch08-17. 배치(3)
+- z-index
+> - 요소의 쌓임 정도를 지정
+> - auto(d, 부모 요소와 동일한 쌓임 정도, 보통 0이라 생각), 숫자(높을수록 우선, -1을 넣는 경우도 있다)
+
+- 요소의 display가 변경됨
+> - `position 속성의 값으로 absolute, fixed` 가 지정된 요소는, display 속성이 `block` 으로 변경됨
+
+## 실습
+```css
+span {
+  width: 100px;
+  height: 100px;
+  background: orange;
+  font-size: 40px;
+  position: absolute;
+}
+```
 
 
 ---------------------------------------------------------------------
 # ch08-18. 플랙스(정렬) Container(1)
+- `display: flex`; 수평정렬
+- Flex Container(부모), Flex items(자식)
+
+- display
+> - Flex Container의 화면 출력 특성
+> - flex: 블럭 요소와 같이 Flex Container 정의
+> - inline-flex: 인라인 요소와 같이 Flex Container 정의
+
+- `flex-direction`
+> - 주 축을 설정
+> - `row(d, 좌->우), row-reverse`, column, column-reverse
+
+
+
+## 실습
+```css
+.container {
+  background: royalblue;
+  display: flex;
+}
+.container .item {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background: orange;
+}
+```
 
 
 ---------------------------------------------------------------------
 # ch08-19. 플랙스(정렬) Container(2)
+- `flex-wrap`
+> - Flex Items 묶음(줄 바꿈) 여부
+> - `nowrap(d), wrap(여러 줄로 묶음)`, wrap-reverse
+
+## 실습
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+```css
+.container {
+  width: 250px;
+  background: royalblue;
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .item {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background: orange;
+
+}
+```
+
+- `justify-content`
+> - 주 축의 정렬 방법
+> - `flex-start(d, Flex Items를 시작점으로 정렬), flex-end, center`
+> - space-between, space-around
+
+- `align-content`
+> - 교차 축의 여러 줄 정렬 방법(수직)
+> - stretch(d, Flex Items를 시작점으로 정렬), flex-start, flex-end, center
+> - space-between, space-around
+
+- `align-items`
+> - 교차 축의 한 줄 정렬 방법
+> - stretch(d, Flex Items를 교차 축으로 늘림), flex-start, flex-end, center
+
+## 실습
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+```
+```css
+.container {
+  width: 500px;
+  height: 300px;
+  background: royalblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .item {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background: orange;
+
+}
+```
 
 
 ---------------------------------------------------------------------
 # ch08-20. 플랙스(정렬) Items
+- `order`
+> - Flex Item 의 순서
+> - 0(d, 순서 없음), 숫자(숫자가 작을수록 먼저, -1 가능)
+
+- flex-grow
+> - Flex Item의 증가 너비 비율
+> - 0(d, 증가 비율 없음), 숫자(증가 비율)
+
+- flex-shrink
+> - Flex Item의 감소 너비 비율
+> - 1(d), 숫자
+
+- flex-basis
+> - Flex Item의 공간 배분 전 기본 너비
+> - auto(d, 요소의 `Content 너비`), 단위
 
 
 ---------------------------------------------------------------------
-# ch08-21. 전환
+# ch08-21. 전환 
 
 
 ---------------------------------------------------------------------
