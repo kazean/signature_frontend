@@ -734,15 +734,100 @@ span {
 
 
 ---------------------------------------------------------------------
-# ch08-21. 전환 
+# ch08-21. 전환
+요소의 전후 상태
+- transition
+> - 요소의 전환(시작과 끝) 효과를 지정하는 단축속성
+> - 속성명 지속시간(단축형으로 작성할 때 필수 포함 속성) 타이밍함수 대기시간
+> - trnasition-property, transition-duration, transition-function, transition-delay
+
+- transition-property
+> - 전환 효과를 사용할 속성 이름을 지정
+> - all(d), 속성이름(전환 효과를 사용할 속성 이름 명시)
+
+- transition-duration
+> - 전환 효과의 지속시간을 지정
+> - 0s(d), 시간
+
+- transition-timing-function
+> - 전환 효과의 타이밍(Easing) 함수를 지정
+> - `ease(d, 느리게 - 빠르게 - 느리게, cubic-bezier(0.25, 0.1, 0.25, 1)), linear, ease-in, ease-out, ease-int-out`
+> - cubic-bazeir(n, n, n, n)
+> > - [함수 참고 사이트1](https://easings.net/ko)
+> > - [함수 참고 사이트2](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function)
+> > - [함수 참고 사이트3 - tweenMax](https://gsap.com/docs/v3/Eases/)
+
+- transition-delay
+> - 전환 효과가 몇 초 뒤에 시작할지 대기시간 지정
+> - 0s(d), 시간
+
+## 실습
+```css
+div {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  /* transition: 
+    width .5s,
+    background-color 2s;
+  */
+  transition: 1s .5s;
+}
+div:active {
+  width: 300px;
+  background-color: royalblue;
+}
+```
 
 
 ---------------------------------------------------------------------
 # ch08-22. 변환(1)
+- transform: 변환함수1 변환함수2 ...;
+> : 원근법 이동 크기 회전 기울임;
+
+- 2D 변환함수
+> - translate(x, y), translateX/Y(x/y): 이동
+> - scale(x, y), scaleX/Y: 크기
+> - rotate(degree): 회전
+> - skewX/Y, skew(x, y): 기울임
+> > matrix(n,n,n,n,n,n) 함수보단 편리하게 사용할 수 있는 함수 활용
+
+- 3D 변환함수
+> - translateZ(z), scaleZ, scale3d: 잘사용 X
+> - `rorateX/Y(x/y)`, rotateZ, rorate3d
+> - `perspective(n)`: 원근법(거리)
+> > matrix3d(n, ... 16개)
+> > > ![원근법](./images/perspective.png)
+
+## 실습
+- transform, rotate
+```html
+<div class="container">
+  <div class="item">AB</div>
+</div>
+```
+```css
+body {
+  padding: 100px;
+}
+.container {
+  width: 100px;
+  height: 100px;
+  background-color: royalblue;
+}
+.container .item {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transform: rotate(45deg) scale(1.3);
+}
+```
+
 
 
 ---------------------------------------------------------------------
 # ch08-23. 변환(2)
+
 
 
 ---------------------------------------------------------------------
