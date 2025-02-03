@@ -794,8 +794,8 @@ div:active {
 
 - 3D 변환함수
 > - translateZ(z), scaleZ, scale3d: 잘사용 X
-> - `rorateX/Y(x/y)`, rotateZ, rorate3d
 > - `perspective(n)`: 원근법(거리)
+> - `rorateX/Y(x/y)`, rotateZ, rorate3d
 > > matrix3d(n, ... 16개)
 > > > ![원근법](./images/perspective.png)
 
@@ -822,7 +822,6 @@ body {
   transform: rotate(45deg) scale(1.3);
 }
 ```
-
 
 
 ---------------------------------------------------------------------
