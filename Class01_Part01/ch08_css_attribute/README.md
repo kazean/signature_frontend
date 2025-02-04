@@ -739,7 +739,7 @@ span {
 - transition
 > - 요소의 전환(시작과 끝) 효과를 지정하는 단축속성
 > - 속성명 지속시간(단축형으로 작성할 때 필수 포함 속성) 타이밍함수 대기시간
-> - trnasition-property, transition-duration, transition-function, transition-delay
+> - trnasition-property, transition-duration, transition-timing-function, transition-delay
 
 - transition-property
 > - 전환 효과를 사용할 속성 이름을 지정
@@ -751,7 +751,7 @@ span {
 
 - transition-timing-function
 > - 전환 효과의 타이밍(Easing) 함수를 지정
-> - `ease(d, 느리게 - 빠르게 - 느리게, cubic-bezier(0.25, 0.1, 0.25, 1)), linear, ease-in, ease-out, ease-int-out`
+> - `ease(d, 느리게 - 빠르게 - 느리게, cubic-bezier(0.25, 0.1, 0.25, 1)), linear, ease-in, ease-out, ease-in-out`
 > - cubic-bazeir(n, n, n, n)
 > > - [함수 참고 사이트1](https://easings.net/ko)
 > > - [함수 참고 사이트2](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function)
@@ -826,12 +826,457 @@ body {
 
 ---------------------------------------------------------------------
 # ch08-23. 변환(2)
+- `perspective(Property)`
+> - 하위 요소를 관찰하는 원근 거리를 지정, 함수보다 조금 더 선호
+> - 단위 px 등
+> > perspective:500px <-> transform: perspective(500px) rotateY(45deg);
 
+- perspective 속성과 함수 차이점
+> [!perspective property](./images/perspective_property.png)
+
+- backface-visibility
+> - 3D 변환으로 회전된 요소의 뒷면 숨김 여부(요소 자체의 뒷면)
+> - visible(d) hidden
+
+## 실습
+```html
+<div class="container">
+  <div class="item">박</div>
+</div>
+```
+```css
+body {
+  padding: 100px;
+}
+.container {
+  width: 100px;
+  height: 100px;
+  background-color: royalblue;
+  perspective: 250px;
+}
+.container .item {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: /* perspective(250px) */rotateX(180deg);
+  backface-visibility: hidden;
+}
+```
 
 
 ---------------------------------------------------------------------
 # ch08-24. Overwatch 캐릭터 선택(예제1)
+- [overwatch github](https://github.com/ParkYoungWoong/overwatch-hero-selector-vanilla)
+
+## 실습(overwatch)
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overwatch</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="heroes">
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+```
+```css
+.container {
+
+}
+.container .heroes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: orange;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.container .heroes .hero {
+  width: 80px;
+  height: 84px;
+  margin: 4px;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #555;
+  transform: skewX(-14deg);
+  transition: .1s;
+}
+.container .heroes .hero:hover {
+  background-color: #ff9c00;
+  transform: skewX(-14deg) scale(1.3);
+  z-index: 1;
+}
+.container .heroes .hero .image{
+  
+}
+```
+
+## 정리
+> - 요소 생성 선택자
+> > `.hero*32>.image`: 개수 곱 '*', 하위 선택자 '>'
+> - 요소 가운데 정렬
+> > `margin: auto`: 브라우저가 가운데 정렬 계산, 단 width값이 정해져 있어야 한다
+> - items 정렬
+> > `dispaly:flex; flex-wrap: wrap; justify-content: center;`
+> - 요소 크기 고정
+> > `box-sizing: border-box;`
+> - 변환
+> > `transfrom: skew(-14deg) scale(1.3);`
 
 
 ---------------------------------------------------------------------
 # ch08-25. Overwatch 캐릭터 선택(예제2)
+## 실습
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overwatch</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="heroes">
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+    <div class="hero">
+      <div class="image"></div>
+    </div>
+  </div>
+
+  <div class="logo">
+    <img src="https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/logo_overwatch.png" alt="Overwatch">
+  </div>
+</div>
+
+</body>
+</html>
+```
+```css
+body {
+  height: 100vh;
+  background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.container {
+  padding: 50px 0;
+}
+.container .heroes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.container .heroes .hero {
+  width: 80px;
+  height: 84px;
+  margin: 4px;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #555;
+  overflow: hidden;
+  transform: skewX(-14deg);
+  transition: 
+    transform .1s, 
+    background-color .6s;
+  
+}
+.container .heroes .hero:hover {
+  background-color: #ff9c00;
+  transform: skewX(-14deg) scale(1.3);
+  z-index: 1;
+}
+.container .heroes .hero .image{
+  width: 140%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90px;
+  transform: skewX(14deg) translateX(-16px);
+}
+.container .heroes .hero:nth-child(1) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero1.png"); }
+.container .heroes .hero:nth-child(2) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero2.png"); }
+.container .heroes .hero:nth-child(3) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero3.png"); }
+.container .heroes .hero:nth-child(4) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero4.png"); }
+.container .heroes .hero:nth-child(5) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero5.png"); }
+.container .heroes .hero:nth-child(6) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero6.png"); }
+.container .heroes .hero:nth-child(7) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero7.png"); }
+.container .heroes .hero:nth-child(8) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero8.png"); }
+.container .heroes .hero:nth-child(9) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero9.png"); }
+.container .heroes .hero:nth-child(10) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero10.png"); }
+.container .heroes .hero:nth-child(11) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero11.png"); }
+.container .heroes .hero:nth-child(12) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero12.png"); }
+.container .heroes .hero:nth-child(13) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero13.png"); }
+.container .heroes .hero:nth-child(14) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero14.png"); }
+.container .heroes .hero:nth-child(15) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero15.png"); }
+.container .heroes .hero:nth-child(16) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero16.png"); }
+.container .heroes .hero:nth-child(17) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero17.png"); }
+.container .heroes .hero:nth-child(18) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero18.png"); }
+.container .heroes .hero:nth-child(19) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero19.png"); }
+.container .heroes .hero:nth-child(20) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero20.png"); }
+.container .heroes .hero:nth-child(21) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero21.png"); }
+.container .heroes .hero:nth-child(22) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero22.png"); }
+.container .heroes .hero:nth-child(23) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero23.png"); }
+.container .heroes .hero:nth-child(24) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero24.png"); }
+.container .heroes .hero:nth-child(25) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero25.png"); }
+.container .heroes .hero:nth-child(26) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero26.png"); }
+.container .heroes .hero:nth-child(27) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero27.png"); }
+.container .heroes .hero:nth-child(28) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero28.png"); }
+.container .heroes .hero:nth-child(29) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero29.png"); }
+.container .heroes .hero:nth-child(30) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero30.png"); }
+.container .heroes .hero:nth-child(31) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero31.png"); }
+.container .heroes .hero:nth-child(32) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero32.png"); }
+
+.container .logo {
+  max-width: 300px;
+  margin: auto;
+  padding: 0 20px;
+}
+.container .logo img {
+  width: 100%;
+
+}
+```
+
+## 정리
+- 배경 이미지
+> - `background-size: cover;` 요소의 넓은 부분에 맞춤
+> - `background-attachment: fixed;` 배경 이미지 고정
+- 변환
+> 
+```css
+.container .heroes .hero {
+  overflow: hidden;
+  transform: skewX(-14deg);
+  transition: 
+    transform .1s, 
+    background-color .6s;
+}
+```
+> > transition-property 이용, `overflow: hidden` 요소 넘침제어
+- 영웅 이미지
+>
+```css
+.container .heroes .hero .image{
+  width: 140%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90px;
+  transform: skewX(14deg) translateX(-16px);
+}
+.container .heroes .hero:nth-child(32) .image{ background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero32.png"); }
+```
+> > nth-child와 이미지 반복 나중에 SCSS를 활용해서 간결히 정리가능
