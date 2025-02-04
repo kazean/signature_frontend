@@ -736,7 +736,7 @@ span {
 ---------------------------------------------------------------------
 # ch08-21. 전환
 요소의 전후 상태
-- transition
+- `transition`
 > - 요소의 전환(시작과 끝) 효과를 지정하는 단축속성
 > - 속성명 지속시간(단축형으로 작성할 때 필수 포함 속성) 타이밍함수 대기시간
 > - trnasition-property, transition-duration, transition-timing-function, transition-delay
@@ -782,7 +782,7 @@ div:active {
 
 ---------------------------------------------------------------------
 # ch08-22. 변환(1)
-- transform: 변환함수1 변환함수2 ...;
+- `transform: 변환함수1 변환함수2 ...;`
 > : 원근법 이동 크기 회전 기울임;
 
 - 2D 변환함수
@@ -836,7 +836,7 @@ body {
 
 - backface-visibility
 > - 3D 변환으로 회전된 요소의 뒷면 숨김 여부(요소 자체의 뒷면)
-> - visible(d) hidden
+> - visible(d), hidden
 
 ## 실습
 ```html
@@ -890,99 +890,7 @@ body {
     <div class="hero">
       <div class="image"></div>
     </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
+    <!-- 32개 -->
   </div>
 </div>
 
@@ -1040,117 +948,8 @@ body {
 # ch08-25. Overwatch 캐릭터 선택(예제2)
 ## 실습
 ```html
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Overwatch</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
-  <link rel="stylesheet" href="./main.css">
-</head>
-<body>
-
 <div class="container">
-  <div class="heroes">
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-    <div class="hero">
-      <div class="image"></div>
-    </div>
-  </div>
-
+  <!-- ~ -->
   <div class="logo">
     <img src="https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/logo_overwatch.png" alt="Overwatch">
   </div>
