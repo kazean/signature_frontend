@@ -9,7 +9,7 @@
 - [Ch06. HTML 핵심정리](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch06_html_core)
 - [Ch07. CSS 개요](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch07_css_outline)
 - [Ch08. CSS 속성](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch08_css_attribute)
-- [Ch09. ](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
+- [Ch09. JS 선행](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch09_JS_preceding)
 - [Ch10. ](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
 - [Ch11. ](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
 
