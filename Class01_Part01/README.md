@@ -10,7 +10,7 @@
 - [Ch07. CSS 개요](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch07_css_outline)
 - [Ch08. CSS 속성](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch08_css_attribute)
 - [Ch09. JS 선행](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch09_JS_preceding)
-- [Ch10. ](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
+- [Ch10. 스타벅스 예제](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/ch10_starbucks_ex)
 - [Ch11. ](https://github.com/kazean/signature_frontend/tree/main/Class01_Part01/)
 
 
