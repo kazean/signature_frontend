@@ -282,8 +282,27 @@ boxEls.forEach(function (boxEl, index) {
 
 
 ---------------------------------------------------------------------
-# Ch09-08. 메소드 체이닝
+# Ch09-08. 메소드 체이닝(Method Chaining)
+- 메소듸를 연결해서 붙여서 사용하는 것
+```js
+const a = 'Hello~';
+const b = a.split('').reverse().join(''); // Method Chaining
+```
+> split/reverse/join: reverse/join은 배열, join은 split뒤에 못붙인다.
 
 
 ---------------------------------------------------------------------
 # Ch09-09. 질의 응답
+- The quick brown fox > camelCase 
+- `let fruits = ['Apple', 'Banana', 'Cherry']` > Banana 출력
+- '값이 의도적으로 비어있음'을 의미하는 데이터
+- {} 위 데이터 종류는?
+- Undefined
+- const
+- Arguments(인수) - Parameters(매개변수, 함수 인수)
+- 익명 함수(Anonymous Function)
+- defer
+- document.querySelector().textContent
+- `El.addEventListener('<event>', <handler>)`
+- `El.classList.add('<class>')`
+- Method Chaining
