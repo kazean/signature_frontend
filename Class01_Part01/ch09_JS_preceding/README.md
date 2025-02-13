@@ -283,7 +283,7 @@ boxEls.forEach(function (boxEl, index) {
 
 ---------------------------------------------------------------------
 # Ch09-08. 메소드 체이닝(Method Chaining)
-- 메소듸를 연결해서 붙여서 사용하는 것
+- 메소드를 연결해서 붙여서 사용하는 것
 ```js
 const a = 'Hello~';
 const b = a.split('').reverse().join(''); // Method Chaining
