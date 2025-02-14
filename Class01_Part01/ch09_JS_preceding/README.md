@@ -13,10 +13,10 @@
 ---------------------------------------------------------------------
 # Ch09-01. 개요
 ## 표기법
-- dash-case(kebab-case)
-- snake_case
-- camelCase
-- ParcelCase
+- `dash-case(kebab-case)`
+- `snake_case`
+- `camelCase`
+- `ParcelCase`
 
 ### dash-case(kebab-case)
 - HTML, CSS에서 주로 사용
@@ -76,9 +76,9 @@ console.log(new Date('2021-02-01').getDay()); // 1, 월요일
 // 따옴표를 사용합니다: "", '', ``
 let hello = `Hello ${myName}?!`; 
 ```
-> 보간법, '`', ```${<param>}```
+> `보간법`, '`', ```${<param>}```
 
-### Undefined
+### `Undefined`
 - 값이 할당되지 않은 상태
 
 ### Null
@@ -250,7 +250,7 @@ console.log(boxEl.textContent);
 boxEl.textContent = 'HEROPY';
 ```
 > - `docuemtn.querySelectorAll(<Selector>)`
-> > - boxEls.forEact(function () { })
+> > - boxEls.forEach(function () { })
 > - boxEl.textContent
 
 ## 실습
